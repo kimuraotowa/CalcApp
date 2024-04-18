@@ -15,67 +15,64 @@ class MainActivity : AppCompatActivity() {
         //レイアウトxmlで定義されたEditText,Button検索
         val et1 = findViewById<EditText>(R.id.et1)
         val et2 = findViewById<EditText>(R.id.et2)
-        val AddButton = findViewById<Button>(R.id.btn3)
-        val mulButton = findViewById<Button>(R.id.btn2)
         val DivButton = findViewById<Button>(R.id.btn1)
+        val mulButton = findViewById<Button>(R.id.btn2)
+        val AddButton = findViewById<Button>(R.id.btn3)
         val SubButton = findViewById<Button>(R.id.btn4)
 
         //Buttonがクリックされたときの動作
         //EditTextを使って計算
         // Double型
-        //?:0.0 EditTextに入力されてない場合 0.0を使う
-        AddButton.setOnClickListener {
-            val num1 = et1.text.toString().toDoubleOrNull() ?: 0.0
-            val num2 = et2.text.toString().toDoubleOrNull() ?: 0.0
+        DivButton.setOnClickListener {
+            val num1 = et1.text.toString().toDoubleOrNull()
+            val num2 = et2.text.toString().toDoubleOrNull()
 
-            //num1とnum2がどちらでもないかつnum2は0.0でもない場合①動く
-            if (num1 != null && num2 != null && num2 != 0.0) {
-                //①
+            //num1とnum2がどちらでもない場合
+            if (num1 != null && num2 != null ) {
                 val result = num1 / num2
                 openResultActivity(result)
-            //num1またはnum2がnullの場合またnum2が0の場合エラーメッセージ表示
+                //num1またはnum2がnullの場合またnum2が0の場合エラーメッセージ表示
             } else {
                 showErrorMessage()
             }
         }
 
         mulButton.setOnClickListener {
-            val num1 = et1.text.toString().toDoubleOrNull() ?: 0.0
-            val num2 = et2.text.toString().toDoubleOrNull() ?: 0.0
-            val result = num1 * num2
+            val num1 = et1.text.toString().toDoubleOrNull()
+            val num2 = et2.text.toString().toDoubleOrNull()
 
-            //num1とnum2がどちらでもないかつnum2は0.0でもない場合
-            if (num1 != null && num2 != null && num2 != 0.0) {
-                val result = num1 / num2
+            //num1とnum2がどちらでもない場合
+            if (num1 != null && num2 != null ) {
+                val result = num1 * num2
                 openResultActivity(result)
-            //num1またはnum2がnullの場合またnum2が0の場合エラーメッセージ表示
+                //num1またはnum2がnullの場合エラーメッセージ表示
             } else {
                 showErrorMessage()
             }
         }
 
-        DivButton.setOnClickListener {
-            val num1 = et1.text.toString().toDoubleOrNull() ?: 0.0
-            val num2 = et2.text.toString().toDoubleOrNull() ?: 0.0
+        AddButton.setOnClickListener {
+            val num1 = et1.text.toString().toDoubleOrNull()
+            val num2 = et2.text.toString().toDoubleOrNull()
 
-            //num1とnum2がどちらでもないかつnum2は0.0でもない場合
-            if (num1 != null && num2 != null && num2 != 0.0) {
-                val result = num1 / num2
+            //num1とnum2がどちらでもない場合①動く
+            if (num1 != null && num2 != null ) {
+                //①
+                val result = num1 + num2
                 openResultActivity(result)
-            //num1またはnum2がnullの場合またnum2が0の場合エラーメッセージ表示
+            //num1またはnum2がnullの場合エラーメッセージ表示
             } else {
                 showErrorMessage()
             }
         }
 
         SubButton.setOnClickListener {
-            val num1 = et1.text.toString().toDoubleOrNull() ?: 0.0
-            val num2 = et2.text.toString().toDoubleOrNull() ?: 0.0
-            val result = num1 - num2
+            val num1 = et1.text.toString().toDoubleOrNull()
+            val num2 = et2.text.toString().toDoubleOrNull()
 
             //num1とnum2がどちらでもないかつnum2は0.0でもない場合
-            if (num1 != null && num2 != null && num2 != 0.0) {
-                val result = num1 / num2
+            if (num1 != null && num2 != null ) {
+                val result = num1 - num2
                 openResultActivity(result)
             //num1またはnum2がnullの場合またnum2が0の場合エラーメッセージ表示
             } else {
