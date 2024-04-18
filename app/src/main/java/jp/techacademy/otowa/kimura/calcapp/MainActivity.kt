@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             if (num1 != null && num2 != null ) {
                 val result = num1 / num2
                 openResultActivity(result)
-                //num1またはnum2がnullの場合またnum2が0の場合エラーメッセージ表示
+                //num1またはnum2がnullの場合エラーメッセージ表示
             } else {
                 showErrorMessage()
             }
@@ -70,11 +70,11 @@ class MainActivity : AppCompatActivity() {
             val num1 = et1.text.toString().toDoubleOrNull()
             val num2 = et2.text.toString().toDoubleOrNull()
 
-            //num1とnum2がどちらでもないかつnum2は0.0でもない場合
+            //num1とnum2がどちらでもない場合
             if (num1 != null && num2 != null ) {
                 val result = num1 - num2
                 openResultActivity(result)
-            //num1またはnum2がnullの場合またnum2が0の場合エラーメッセージ表示
+            //num1またはnum2がnullの場合エラーメッセージ表示
             } else {
                 showErrorMessage()
             }
